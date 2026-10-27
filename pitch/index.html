@@ -14,139 +14,171 @@
 @font-face{font-family:'Inter Tight';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116,U+20BD}
 
 
-/* Fixed 1600x900 stage scaled to the screen. One idea per slide, almost no text: the dots behind are the picture.
-   They become the word Oriel, a 10x10 chart, noise, bars of causes, a week line, a breathing ring, a timeline. */
+/* Fixed 1600x900 stage scaled to the screen. Same look as the app: SF Pro text, SF Pro Rounded numbers,
+   two-tone headlines with a grey part, flat dark cards. Inter Tight is only a fallback where SF Pro is missing. */
 :root{
-  --bg:#050506; --ink:#f5f5f7; --ink2:rgba(245,245,247,.6); --ink3:rgba(245,245,247,.3);
-  --display:"Inter Tight",-apple-system,"SF Pro Display",BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --bg:#000; --card:#111113; --line:rgba(255,255,255,.1);
+  --ink:#f5f5f7; --ink2:rgba(245,245,247,.62); --ink3:rgba(245,245,247,.34);
+  --sf:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter Tight",sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);overflow:hidden}
-body{color:var(--ink);font-family:var(--display);-webkit-font-smoothing:antialiased;user-select:none}
+body{color:var(--ink);font-family:var(--sf);-webkit-font-smoothing:antialiased;user-select:none}
 #stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;overflow:hidden;background:var(--bg)}
-#dots{position:absolute;inset:0;width:1600px;height:900px}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s .5s}
-.slide.on{opacity:1;visibility:visible;transition:opacity .6s ease .35s,visibility 0s}
-.slide>*{position:absolute;margin:0}
-.slide>*{transform:translateY(14px);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.slide.on>*{transform:none}
-.slide.on>*:nth-child(2){transition-delay:.1s}.slide.on>*:nth-child(3){transition-delay:.2s}.slide.on>*:nth-child(4){transition-delay:.3s}
-.hero{font-size:280px;font-weight:600;letter-spacing:-.07em;line-height:.8;font-variant-numeric:tabular-nums}
-.lead{font-size:76px;font-weight:600;letter-spacing:-.045em;line-height:1;text-wrap:balance}
-.lead .g,.hero .g{color:var(--ink3)}
-.txt{font-size:34px;line-height:1.3;color:var(--ink2);letter-spacing:-.01em;text-wrap:pretty}
-.txt b{color:var(--ink);font-weight:500}
-.src{font-family:var(--mono);font-size:16px;letter-spacing:.06em;color:var(--ink3)}
-.lab{font-size:26px;font-weight:500;letter-spacing:-.01em;color:var(--ink2);text-align:center;width:240px;margin-left:-120px}
-.lab small{display:block;font-size:20px;font-weight:400;color:var(--ink3);margin-top:6px}
-.q{font-size:150px;font-weight:600;letter-spacing:-.06em;line-height:1}
-#num{position:absolute;right:40px;bottom:30px;font:14px var(--mono);letter-spacing:.12em;color:var(--ink3)}
-.hint{position:fixed;right:16px;bottom:12px;font:12px var(--mono);color:var(--ink3);opacity:.7;transition:opacity 1s}
+.slide{position:absolute;inset:0;padding:120px 128px;display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s .45s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .6s ease .1s,visibility 0s}
+.slide .in>*{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.slide.on .in>*{opacity:1;transform:none}
+.slide.on .in>*:nth-child(2){transition-delay:.08s}.slide.on .in>*:nth-child(3){transition-delay:.16s}.slide.on .in>*:nth-child(4){transition-delay:.24s}
+.in{display:flex;flex-direction:column;gap:32px}
+.kick{font-size:22px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+h2{font-size:88px;line-height:1.02;max-width:1250px}
+h2 .g,h3 .g{color:var(--ink3)}
+p{margin:0;font-size:34px;line-height:1.32;color:var(--ink2);max-width:900px;text-wrap:pretty}
+p b{color:var(--ink);font-weight:600}
+.num{font-family:var(--round);font-weight:700;font-size:260px;line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.track{height:10px;border-radius:5px;background:#1c1c1f;width:100%;max-width:1344px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:5px;background:var(--ink);width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1) .25s}
+.src{font-size:20px;color:var(--ink3)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card);border-radius:32px;padding:40px 40px 44px;display:flex;flex-direction:column;gap:14px;min-height:300px}
+.card .n{font-family:var(--round);font-weight:700;font-size:28px;color:var(--ink3)}
+.card h3{font-size:44px;line-height:1.05;margin-top:auto}
+.card p{font-size:26px}
+.card.dim h3,.card.dim .n{color:var(--ink3)}
+.stack h2{font-size:96px;line-height:1.04;max-width:1344px}
+.center{align-items:center;text-align:center}
+.center .in{align-items:center}
+#logo{width:300px;height:300px}
+.brand{font-size:120px;font-weight:700;letter-spacing:-.04em;line-height:1}
+#num{position:absolute;right:48px;bottom:36px;font:500 18px var(--round);color:var(--ink3);font-variant-numeric:tabular-nums}
+.hint{position:fixed;right:16px;bottom:12px;font:12px var(--sf);color:var(--ink3);opacity:.7;transition:opacity 1s}
 body.print .hint{display:none}
-@media (prefers-reduced-motion:reduce){.slide,.slide>*{transition:none}}
+body.print .slide .in>*,body.print .track i{transition:none}
+@media (prefers-reduced-motion:reduce){.slide,.slide .in>*,.track i{transition:none}}
 </style>
 </head>
 <body>
 <div id="stage">
-  <canvas id="dots" aria-hidden="true"></canvas>
 
-  <!-- 1 -->
-  <section class="slide" data-v="word:Oriel">
-    <p class="txt" style="left:0;right:0;top:640px;text-align:center">Понять свою тревогу и прийти в себя</p>
+  <section class="slide center" data-logo>
+    <div class="in" style="gap:28px">
+      <div class="logo-slot"></div>
+      <div class="brand">Oriel</div>
+      <p>Понять свою тревогу и прийти в себя</p>
+    </div>
   </section>
 
-  <!-- 2 -->
-  <section class="slide" data-v="grid:57">
-    <div class="hero" style="left:112px;top:250px">57%</div>
-    <p class="txt" style="left:120px;top:510px;width:700px">россиян видят вокруг <b>больше тревоги, чем спокойствия</b></p>
-    <p class="src" style="left:120px;top:640px">ФОМ · лето 2026 · 1 500 человек</p>
+  <section class="slide">
+    <div class="in">
+      <div class="num">57%</div>
+      <h2 style="font-size:64px">россиян видят вокруг <span class="g">больше тревоги, чем спокойствия</span></h2>
+      <div class="track"><i style="--w:57%"></i></div>
+      <div class="src">ФОМ, лето 2026, 1 500 человек</div>
+    </div>
   </section>
 
-  <!-- 3 -->
-  <section class="slide" data-v="grid:48">
-    <div class="hero" style="left:112px;top:250px">48%</div>
-    <p class="txt" style="left:120px;top:510px;width:700px">студентов <b>с признаками тревожности</b></p>
-    <p class="src" style="left:120px;top:640px">НовГУ · 3 300 студентов из 19 вузов · 2026</p>
+  <section class="slide">
+    <div class="in">
+      <div class="num">48%</div>
+      <h2 style="font-size:64px">студентов <span class="g">с признаками тревожности</span></h2>
+      <div class="track"><i style="--w:48%"></i></div>
+      <div class="src">НовГУ, 2026: 3 300 студентов из 19 вузов</div>
+    </div>
   </section>
 
-  <!-- 4 -->
-  <section class="slide" data-v="grid:19">
-    <div class="hero" style="left:112px;top:250px">19%</div>
-    <p class="txt" style="left:120px;top:510px;width:700px">обращений к психологу вуза — <b>из‑за тревоги</b></p>
-    <p class="src" style="left:120px;top:640px">Минобрнауки · 2025/26</p>
+  <section class="slide">
+    <div class="in">
+      <div class="num">19%</div>
+      <h2 style="font-size:64px">обращений к психологу вуза <span class="g">из‑за тревоги</span></h2>
+      <div class="track"><i style="--w:19%"></i></div>
+      <div class="src">Минобрнауки, 2025/26</div>
+    </div>
   </section>
 
-  <!-- 5 -->
-  <section class="slide" data-v="chaos">
-    <div class="q" style="left:112px;top:150px">Экзамен?</div>
-    <div class="q" style="left:700px;top:370px;color:var(--ink2)">Недосып?</div>
-    <div class="q" style="left:290px;top:590px;color:var(--ink3)">Новости?</div>
+  <section class="slide">
+    <div class="in stack" style="gap:8px">
+      <h2>Экзамен?</h2>
+      <h2 style="color:var(--ink2)">Недосып?</h2>
+      <h2 style="color:var(--ink3)">Новости?</h2>
+      <p style="margin-top:48px">Студент не понимает, откуда тревога. Медитации предлагают подышать, <b>но причину не объясняют.</b></p>
+    </div>
   </section>
 
-  <!-- 6 -->
-  <section class="slide" data-v="crowd">
-    <h2 class="lead" style="left:112px;top:300px;width:760px">Студенты, которым тревога <span class="g">мешает учиться</span></h2>
-    <p class="txt" style="left:116px;top:560px">Нужен только телефон</p>
+  <section class="slide">
+    <div class="in">
+      <div class="kick">Для кого</div>
+      <h2>Студенты, которым тревога <span class="g">мешает учиться</span></h2>
+      <p>Нужен только телефон.</p>
+    </div>
   </section>
 
-  <!-- 7 -->
-  <section class="slide" data-v="bars">
-    <h2 class="lead" style="left:112px;top:140px;width:720px">Oriel показывает, <span class="g">откуда тревога</span></h2>
-    <p class="src" style="left:116px;top:770px">Пример вывода через неделю</p>
-    <div class="lab" style="left:960px;top:780px">Недосып</div>
-    <div class="lab" style="left:1180px;top:780px">Экзамены</div>
-    <div class="lab" style="left:1400px;top:780px">Новости</div>
+  <section class="slide">
+    <div class="in">
+      <div class="kick">Oriel</div>
+      <h2>Понять, откуда тревога, <span class="g">и быстро прийти в себя</span></h2>
+    </div>
   </section>
 
-  <!-- 8 -->
-  <section class="slide" data-v="week">
-    <h2 class="lead" style="left:112px;top:120px;width:1100px">Несколько секунд в день. <span class="g">Вывод через неделю.</span></h2>
-    <p class="txt" style="left:116px;top:300px">С часами точнее. Без часов тоже работает.</p>
-    <div class="src" id="days" style="left:0;top:800px;width:1600px;height:20px"></div>
+  <section class="slide">
+    <div class="in" style="gap:56px">
+      <h2 style="font-size:72px">Как это работает</h2>
+      <div class="cards">
+        <div class="card"><span class="n">1</span><h3>Отметка</h3><p>Несколько секунд в день: насколько тревожно и из‑за чего.</p></div>
+        <div class="card"><span class="n">2</span><h3>Вывод</h3><p>Через неделю простыми словами: что раскачивает и что помогает.</p></div>
+        <div class="card"><span class="n">3</span><h3>Помощь</h3><p>Экран, который помогает прийти в себя. Без интернета.</p></div>
+      </div>
+      <p style="font-size:26px">С умными часами выводы точнее. Без часов тоже работает.</p>
+    </div>
   </section>
 
-  <!-- 9 -->
-  <section class="slide" data-v="ring">
-    <h2 class="lead" style="left:112px;top:330px;width:640px">Помощь <span class="g">в моменте</span></h2>
-    <p class="txt" style="left:116px;top:440px">Работает без интернета</p>
-    <p class="src" id="breath" style="left:1150px;top:438px;width:240px;margin-left:-120px;text-align:center">вдох</p>
+  <section class="slide">
+    <div class="in" style="gap:56px">
+      <h2 style="font-size:72px">Приложение <span class="g">уже есть</span></h2>
+      <div class="cards">
+        <div class="card"><span class="n">Работает</span><h3>Отметки, статистика, GAD‑7</h3><p>И «Помощь» без интернета.</p></div>
+        <div class="card"><span class="n">Языки</span><h3 style="font-family:var(--round);font-size:120px;line-height:.9">16</h3><p>Можно запускать не только в России.</p></div>
+        <div class="card dim"><span class="n">В тесте</span><h3>Apple Health, сигнал «Как ты?»</h3><p>Пока нет: ИИ‑разборов и оплаты.</p></div>
+      </div>
+    </div>
   </section>
 
-  <!-- 10 -->
-  <section class="slide" data-v="word:16">
-    <h2 class="lead" style="left:112px;top:220px;width:640px">Приложение <span class="g">уже есть</span></h2>
-    <p class="txt" style="left:116px;top:420px;width:620px"><b>Работает:</b> отметки, статистика, тест GAD‑7, помощь без интернета</p>
-    <p class="txt" style="left:116px;top:560px;width:620px;color:var(--ink3)">В тесте: Apple Health и сигнал «Как ты?»</p>
-    <div class="lab" style="left:1170px;top:700px">языков</div>
+  <section class="slide">
+    <div class="in stack" style="gap:8px">
+      <h2 style="color:var(--ink3)">Медитации успокаивают.</h2>
+      <h2 style="color:var(--ink3)">Дневники собирают.</h2>
+      <h2>Oriel объясняет.</h2>
+      <p style="margin-top:48px">Психолог стоит от 3 150 ₽ за сессию. <b>Мы помогаем между сессиями</b> и тем, кому он не по карману.</p>
+    </div>
   </section>
 
-  <!-- 11 -->
-  <section class="slide" data-v="focus">
-    <h2 class="lead" style="left:112px;top:220px;font-size:96px;color:var(--ink3)">Медитации успокаивают.</h2>
-    <h2 class="lead" style="left:112px;top:340px;font-size:96px;color:var(--ink3)">Дневники собирают.</h2>
-    <h2 class="lead" style="left:112px;top:460px;font-size:96px">Oriel объясняет.</h2>
-    <p class="txt" style="left:116px;top:640px;width:760px">Психолог — от 3 150 ₽. Мы помогаем между сессиями.</p>
+  <section class="slide">
+    <div class="in" style="gap:56px">
+      <h2 style="font-size:72px">Мы проверяем, <span class="g">а не обещаем</span></h2>
+      <div class="cards">
+        <div class="card"><span class="n">Сейчас</span><h3>15–20 интервью</h3><p>Со студентами, начинаем на этом форуме.</p></div>
+        <div class="card"><span class="n">Потом</span><h3>Тест на студентах</h3><p>С часами и без: стало ли понятнее, откуда тревога.</p></div>
+        <div class="card"><span class="n">Дальше</span><h3>Меняем по данным</h3><p>Что не работает, увидим и переделаем.</p></div>
+      </div>
+    </div>
   </section>
 
-  <!-- 12 -->
-  <section class="slide" data-v="road">
-    <h2 class="lead" style="left:112px;top:180px">Мы проверяем, <span class="g">а не обещаем</span></h2>
-    <div class="lab" style="left:300px;top:600px">15–20 интервью<small>со студентами</small></div>
-    <div class="lab" style="left:800px;top:600px">Тест на студентах<small>с часами и без</small></div>
-    <div class="lab" style="left:1300px;top:600px">Меняем по данным<small>что не работает</small></div>
-  </section>
-
-  <!-- 13 -->
-  <section class="slide" data-v="word:Oriel">
-    <p class="txt" style="left:0;right:0;top:640px;text-align:center">Понять свою тревогу и прийти в себя. <b>Спасибо.</b></p>
-    <p class="src" style="left:0;right:0;top:720px;text-align:center">cxlvcl.github.io/oriel-presentation</p>
+  <section class="slide center" data-logo>
+    <div class="in" style="gap:28px">
+      <div class="logo-slot"></div>
+      <div class="brand">Спасибо</div>
+      <p>Oriel: понять свою тревогу и прийти в себя</p>
+      <div class="src">cxlvcl.github.io/oriel-presentation</div>
+    </div>
   </section>
 
   <div id="num"></div>
 </div>
 <div class="hint" id="hint">← → листать · F полный экран</div>
+<canvas id="logo" aria-label="Логотип Oriel"></canvas>
 
 <script>
 const slides = [...document.querySelectorAll(".slide")];
@@ -163,100 +195,16 @@ function fit(){
 }
 addEventListener("resize", fit); fit();
 
-document.getElementById("days").innerHTML = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
-  .map((d, i) => `<span style="position:absolute;left:${dayX(i) - 20}px;width:40px;text-align:center">${d}</span>`).join("");
-function dayX(i){ return 180 + i * 206; }
-
-// ---- particles ----
-const W = 1600, H = 900, N = 1400;
-const cv = document.getElementById("dots"), ctx = cv.getContext("2d");
-const DPR = Math.min(2, devicePixelRatio || 1);
-cv.width = W * DPR; cv.height = H * DPR; ctx.scale(DPR, DPR);
-let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-const gauss = () => { let u = 0; for (let i = 0; i < 4; i++) u += rnd(); return (u - 2) / .58; };
-const P = [];
-for (let i = 0; i < N; i++) P.push({x: rnd()*W, y: rnd()*H, a: 0, r: 1.5, ph: rnd()*6.283, sp: .4 + rnd()*.8, k: 1.6 + rnd()*2.4});
-
-const off = (t) => ({x: rnd()*W, y: rnd()*H, a: 0, r: 1.2, j: 10});
-const VIEWS = {};
-
-// Text made of dots, sampled from an offscreen canvas.
-function wordView(word){
-  const c = document.createElement("canvas"); c.width = W; c.height = H;
-  const g = c.getContext("2d");
-  const size = word.length > 2 ? 330 : 470;
-  g.font = `600 ${size}px ${getComputedStyle(document.body).fontFamily}`;
-  g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = "#fff";
-  const cx = word.length > 2 ? 800 : 1170, cy = word.length > 2 ? 400 : 420;
-  g.fillText(word, cx, cy);
-  const d = g.getImageData(0, 0, W, H).data, pts = [];
-  for (let y = 0; y < H; y += 7) for (let x = (y / 7 % 2) * 3.5; x < W; x += 7) if (d[(y * W + (x | 0)) * 4 + 3] > 128) pts.push([x, y]);
-  for (let i = pts.length - 1; i > 0; i--) { const j = (rnd() * (i + 1)) | 0; [pts[i], pts[j]] = [pts[j], pts[i]]; }
-  return P.map((_, i) => i < pts.length ? {x: pts[i][0], y: pts[i][1], a: .95, r: 2.1, j: 1.2} : off());
-}
-// 10x10 chart: the first `lit` dots are bright.
-function gridView(lit){
-  const s = 50, x0 = 1010, y0 = 205;
-  return P.map((_, i) => {
-    if (i >= 100) return off();
-    const row = 9 - Math.floor(i / 10), col = i % 10;
-    return {x: x0 + col * s, y: y0 + row * s, a: i < lit ? 1 : .16, r: 10, j: 0};
-  });
-}
-VIEWS.chaos = () => P.map(() => ({x: rnd()*W, y: rnd()*H, a: .25 + rnd()*.45, r: 1 + rnd()*1.8, j: 34}));
-VIEWS.crowd = () => P.map((_, i) => {
-  if (i >= 520) return off();
-  const x = 880 + rnd() * 640;
-  return {x, y: 450 + Math.sin(x / 110) * 60 + gauss() * 110, a: i < 250 ? .9 : .22, r: 3.2, j: 3};
-});
-// Three columns of dots: an example of "what shakes you" after a week.
-VIEWS.bars = () => {
-  const cols = [[960, 17], [1180, 11], [1400, 6]], pts = [];
-  cols.forEach(([cx, h], c) => { for (let r = 0; r < h; r++) for (let k = 0; k < 6; k++) pts.push({x: cx - 62 + k * 25, y: 745 - r * 25, a: c === 0 ? 1 : c === 1 ? .6 : .32, r: 6.5, j: 0}); });
-  return P.map((_, i) => pts[i] || off());
-};
-// A week of check-ins: a line that calms down.
-VIEWS.week = () => {
-  const v = [.82, .7, .88, .55, .6, .38, .3], Y = (t) => 760 - t * 330, pts = [];
-  for (let i = 0; i < 7; i++) pts.push({x: dayX(i), y: Y(v[i]), a: 1, r: 9, j: 0});
-  for (let n = 0; n < 600; n++) {
-    const f = n / 599 * 6, i = Math.min(5, Math.floor(f)), t = f - i;
-    pts.push({x: dayX(i) + (dayX(i + 1) - dayX(i)) * t, y: Y(v[i] + (v[i + 1] - v[i]) * t), a: .8, r: 2.2, j: 0});
-  }
-  for (let n = 0; n < 160; n++) pts.push({x: 150 + n * 8.1, y: 770, a: .18, r: 1.2, j: 0});
-  return P.map((_, i) => pts[i] || off());
-};
-VIEWS.ring = () => P.map((_, i) => {
-  if (i >= 900) return off();
-  const a = i / 900 * 6.283 * 3, band = (i % 3) - 1;
-  return {x: 1150 + Math.cos(a) * (230 + band * 14), y: 450 + Math.sin(a) * (230 + band * 14), a: band === 0 ? .95 : .35, r: band === 0 ? 2.2 : 1.4, j: 1.5, br: 1};
-});
-// Many loose dots drawn into one bright point.
-VIEWS.focus = () => P.map((_, i) => {
-  if (i < 500) { const r = Math.abs(gauss()) * 26, a = rnd() * 6.283; return {x: 1300 + Math.cos(a) * r, y: 450 + Math.sin(a) * r, a: .95, r: 2, j: 1}; }
-  if (i < 900) { const r = 120 + rnd() * 260, a = rnd() * 6.283; return {x: 1300 + Math.cos(a) * r, y: 450 + Math.sin(a) * r, a: .12 + rnd() * .12, r: 1.3, j: 8}; }
-  return off();
-});
-VIEWS.road = () => {
-  const pts = [];
-  [300, 800, 1300].forEach((x, i) => pts.push({x, y: 540, a: 1, r: 13, j: 0}));
-  for (let n = 0; n < 420; n++) { const x = 112 + n * 3.28; pts.push({x, y: 540, a: x < 300 ? .9 : .32, r: 1.6, j: 0}); }
-  return P.map((_, i) => pts[i] || off());
-};
-
-function viewFor(spec){
-  const [name, arg] = spec.split(":");
-  const key = spec;
-  if (!VIEWS[key + "#"]) VIEWS[key + "#"] = name === "word" ? wordView(arg) : name === "grid" ? gridView(+arg) : VIEWS[name]();
-  return VIEWS[key + "#"];
-}
-
-let T = null, view = "";
+const logo = document.getElementById("logo");
 function go(i){
   cur = Math.max(0, Math.min(slides.length - 1, i));
-  slides.forEach((s, n) => s.classList.toggle("on", n === cur));
-  document.getElementById("num").textContent = String(cur + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
-  view = slides[cur].dataset.v; T = viewFor(view);
+  slides.forEach((s, n) => {
+    s.classList.toggle("on", n === cur);
+    s.querySelectorAll(".track i").forEach(b => b.style.width = n === cur ? b.style.getPropertyValue("--w") : "0");
+  });
+  const slot = slides[cur].querySelector(".logo-slot");
+  if (slot) slot.appendChild(logo);
+  document.getElementById("num").textContent = cur + 1 + " / " + slides.length;
   if (!PRINT) history.replaceState(null, "", "#" + (cur + 1));
 }
 addEventListener("keydown", e => {
@@ -271,40 +219,26 @@ addEventListener("touchstart", e => tx = e.touches[0].clientX, {passive: true});
 addEventListener("touchend", e => { if (tx == null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 40) go(d < 0 ? cur + 1 : cur - 1); tx = null; });
 setTimeout(() => document.getElementById("hint").style.opacity = 0, 4000);
 
-// Breathing 4-4-6: in, hold, out. Returns ring scale and the label.
-function breath(t){
-  const c = t % 14;
-  if (c < 4) { const e = c / 4; return [.82 + .28 * (1 - Math.cos(e * Math.PI)) / 2, "вдох"]; }
-  if (c < 8) return [1.1, "пауза"];
-  const e = (c - 8) / 6; return [1.1 - .28 * (1 - Math.cos(e * Math.PI)) / 2, "выдох"];
-}
-const breathLab = document.getElementById("breath");
-let last = performance.now(), t0 = last;
-function frame(now){
-  const dt = Math.min(.05, (now - last) / 1000); last = now;
-  const t = still ? 0 : (now - t0) / 1000;
-  let bs = 1;
-  if (view === "ring") { const [s, l] = still ? [1, "вдох · пауза · выдох"] : breath(t); bs = s; if (breathLab.textContent !== l) breathLab.textContent = l; }
-  ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#f5f5f7";
-  for (let i = 0; i < N; i++) {
-    const p = P[i], q = T[i], k = still ? 1 : 1 - Math.exp(-dt * p.k);
-    p.x += (q.x - p.x) * k; p.y += (q.y - p.y) * k; p.a += (q.a - p.a) * k; p.r += (q.r - p.r) * k;
-    if (p.a < .02) continue;
-    let x = p.x + Math.sin(t * p.sp + p.ph) * q.j, y = p.y + Math.cos(t * p.sp * .8 + p.ph) * q.j;
-    if (q.br) { x = 1150 + (x - 1150) * bs; y = 450 + (y - 450) * bs; }
-    ctx.globalAlpha = p.a;
-    ctx.beginPath(); ctx.arc(x, y, p.r, 0, 6.283); ctx.fill();
+// Logo: the app's dot sphere, turning slowly.
+const ctx = logo.getContext("2d"), S = 300, DPR = Math.min(2, devicePixelRatio || 1);
+logo.width = S * DPR; logo.height = S * DPR; ctx.scale(DPR, DPR);
+const N = 900, P = [];
+for (let n = 0; n < N; n++) { const y = 1 - (n + .5) / N * 2, r = Math.sqrt(1 - y * y), a = n * 2.399963; P.push([Math.cos(a) * r, y, Math.sin(a) * r]); }
+const t0 = performance.now();
+function draw(now){
+  const t = still ? 1 : (now - t0) / 1000, ca = Math.cos(t * .15), sa = Math.sin(t * .15), ct = Math.cos(.3), st = Math.sin(.3);
+  ctx.clearRect(0, 0, S, S); ctx.fillStyle = "#f5f5f7";
+  for (const [x, y, z] of P) {
+    const x1 = x * ca + z * sa, z1 = -x * sa + z * ca, y1 = y * ct - z1 * st, z2 = y * st + z1 * ct, d = (z2 + 1) / 2;
+    ctx.globalAlpha = .06 + Math.pow(d, 1.8) * .9;
+    ctx.beginPath(); ctx.arc(S / 2 + x1 * 140, S / 2 + y1 * 140, .6 + d * 1.5, 0, 6.283); ctx.fill();
   }
-  ctx.globalAlpha = 1;
-  if (!still) requestAnimationFrame(frame);
+  if (!still) requestAnimationFrame(draw);
 }
 
 const start = params.get("s") ? +params.get("s") - 1 : (parseInt(location.hash.slice(1)) || 1) - 1;
-(document.fonts ? document.fonts.load("600 100px 'Inter Tight'").catch(() => {}) : Promise.resolve()).then(() => {
-  go(start);
-  if (still) frame(performance.now()); else requestAnimationFrame(frame);
-});
+go(start);
+requestAnimationFrame(draw);
 </script>
 </body>
 </html>
