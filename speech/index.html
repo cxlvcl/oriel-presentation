@@ -50,6 +50,22 @@ summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:19px
 .src{margin-top:16px;display:flex;flex-direction:column;gap:12px}
 .src div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2)}
 .src a{color:var(--ink)}
+#qa{display:flex;flex-direction:column;gap:28px}
+#qsearch{width:100%;height:52px;padding:0 18px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:17px}
+#qsearch:focus{outline:2px solid var(--ink);outline-offset:2px}
+.qtools{display:flex;align-items:center;gap:12px;margin-top:-12px}
+.note{font-size:14px;color:var(--ink3)}
+.qgroup{display:flex;flex-direction:column}
+.qgroup h2{margin:0 0 6px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+.qa{border-top:1px solid var(--line);padding:0}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px;padding:16px 0;font-family:var(--display);font-weight:600;font-size:calc(var(--size) * .8);line-height:1.3;letter-spacing:-.01em}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.qn{font-family:var(--mono);font-weight:400;font-size:13px;color:var(--ink3);padding-top:.35em}
+.qa p{margin:0 0 18px 44px;font-family:var(--display);font-size:calc(var(--size) * .8);line-height:1.45;color:var(--ink2);text-wrap:pretty}
+.qa p b{color:var(--ink)}
+.avoid{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:17px;color:var(--ink2)}
 @media (max-width:640px){:root{--size:21px}.src div{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
@@ -60,6 +76,7 @@ summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:19px
     <div class="seg" role="tablist" aria-label="Версия речи">
       <button class="on" data-v="full" role="tab" aria-selected="true">3 минуты</button>
       <button data-v="short" role="tab" aria-selected="false">30 секунд</button>
+      <button data-v="qa" role="tab" aria-selected="false">Вопросы</button>
     </div>
     <button class="pill" id="smaller" aria-label="Мельче">A−</button>
     <button class="pill" id="bigger" aria-label="Крупнее">A+</button>
@@ -70,7 +87,7 @@ summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:19px
 <main>
   <header>
     <div class="kick">Питч · ПедТех</div>
-    <h1>Речь <span class="g" id="vlabel">на 3 минуты</span></h1>
+    <h1><span id="vtitle">Речь</span> <span class="g" id="vlabel">на 3 минуты</span></h1>
     <p class="meta" id="vmeta">Около 290 слов, в спокойном темпе это 2,5 минуты. Вопрос про деньги держим наготове, в речи его нет.</p>
   </header>
 
@@ -105,7 +122,49 @@ summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:19px
     </section>
   </div>
 
-  <details>
+  <div id="qa" hidden>
+    <input type="search" id="qsearch" placeholder="Найти вопрос: Apple, деньги, данные…" aria-label="Поиск по вопросам">
+    <div class="qtools"><button class="pill" id="openall" type="button">Раскрыть все</button><span class="note" id="qcount"></span></div>
+    <section class="qgroup"><h2>Проблема и аудитория</h2>
+      <details class="qa"><summary><span class="qn">1</span>Какую проблему вы решаете?</summary><p>Человеку тревожно, но он не понимает, что именно его раскачивает и что помогает. Медитации предлагают подышать, часы показывают пульс, но причину никто не объясняет. Oriel помогает её найти и быстро прийти в себя.</p></details>
+      <details class="qa"><summary><span class="qn">2</span>Кто ваш первый пользователь и где вы его найдёте?</summary><p>Студенты-добровольцы: все, кто захочет принять участие. Особенно те, кому тревога мешает учиться, например перед сессией. Звать будем через студенческие сообщества и знакомых, участие бесплатное.</p></details>
+      <details class="qa"><summary><span class="qn">3</span>Насколько это массовая проблема?</summary><p>По ФОМ, летом 2026 года 57% россиян видели вокруг больше тревоги, чем спокойствия; в исследовании НовГУ признаки тревожности были почти у половины студентов. Какая доля из них готова пользоваться приложением, мы пока не знаем — это покажут опрос и интервью.</p></details>
+    </section>
+    <section class="qgroup"><h2>Конкуренты</h2>
+      <details class="qa"><summary><span class="qn">4</span>Почему не Apple Health?</summary><p>Apple Health бесплатно даёт отметки настроения, GAD-7 и данные сна, но не связывает их с тревогой и не помогает в моменте. К тому же он есть только на iPhone, а нам нужен любой телефон. Apple может это добавить, поэтому мы делаем ставку на узкий фокус — только тревога.</p></details>
+      <details class="qa"><summary><span class="qn">5</span>Чем вы лучше StressWatch и StressPal, которые уже обещают прогноз?</summary><p>Они считают физиологический стресс по часам: без часов ничего не работает. Мы начинаем с того, что человек чувствует сам, а часы только уточняют выводы. Свою утреннюю подсказку мы сначала проверяем на реальных людях и не называем прогнозом, пока не докажем, что она работает.</p></details>
+      <details class="qa"><summary><span class="qn">6</span>Чем вы отличаетесь от дневников настроения, медитаций и «Ясно»?</summary><p>Дневники вроде Bearable собирают всё подряд, мы занимаемся только тревогой и даём вывод, а не таблицу. Медитации успокаивают, но не объясняют причину. «Ясно» — живой психолог от 3 150 ₽ за сессию; мы его не заменяем, а помогаем между сессиями и тем, кому он не по карману.</p></details>
+      <details class="qa"><summary><span class="qn">7</span>Кто ваш самый опасный конкурент?</summary><p>В мире — Apple, потому что бесплатно и уже на телефоне. В России — экосистемы вроде Сбера: они могут сделать похожее бесплатно, признаков этого пока нет. Наша защита — узкий фокус, качество и партнёрства.</p></details>
+    </section>
+    <section class="qgroup"><h2>Уникальность</h2>
+      <details class="qa"><summary><span class="qn">8</span>Что у вас по-настоящему уникально?</summary><p>На рынке есть отдельно трекеры настроения, отдельно медитации и дыхательные упражнения. У нас всё вместе: отметки, понятный вывод о причинах тревоги и помощь в моменте, даже без интернета. И мы стараемся прогнозировать, каким будет день; насколько это точно, проверяем на студентах.</p></details>
+      <details class="qa"><summary><span class="qn">9</span>Что мешает вас скопировать?</summary><p>Отдельные функции скопировать можно, поэтому защищаемся не ими. Первое — личная история: чем дольше человек делает отметки, тем точнее его выводы, а уйти к копии значит начать с нуля. Второе — доверие студентов и, если договоримся, психологических служб вузов. Третье — в России законная работа: оплата в рублях и хранение данных в стране, иностранцам это повторить очень трудно.</p></details>
+    </section>
+    <section class="qgroup"><h2>Наука и безопасность</h2>
+      <details class="qa"><summary><span class="qn">10</span>Можно ли вообще предсказать тревогу?</summary><p>Связь сна и пульса с тревогой есть в исследованиях, но предсказать тревогу конкретного человека на завтра пока никто не доказал. Поэтому мы говорим «подсказка», а не «прогноз», и сравниваем её с тем, что человек отметит сам.</p></details>
+      <details class="qa"><summary><span class="qn">11</span>Не навредит ли приложение тревожному человеку?</summary><p>Мы не ставим диагнозов и не называем себя терапией. Сигнал «Как ты?» выключен по умолчанию и показывается без пугающих цифр, кризисные контакты и «Помощь» всегда бесплатны. Если подсказка ошибается, человек это отмечает, и мы показываем, насколько ей можно доверять.</p></details>
+    </section>
+    <section class="qgroup"><h2>Удержание</h2>
+      <details class="qa"><summary><span class="qn">12</span>Почему пользователь не бросит через две недели?</summary><p>Честно — это главный риск: в исследовании 93 приложений для психического здоровья через месяц оставалось в среднем 3,3% пользователей. Мы делаем отметку на несколько секунд, первый вывод показываем через несколько дней и не давим сериями. Сработает ли это, покажет тест: смотрим, сколько людей остаётся через 2 и 4 недели.</p></details>
+      <details class="qa"><summary><span class="qn">13</span>Как работает приложение без часов?</summary><p>Полностью: отметки, выводы, профиль тревоги и «Помощь» работают на одном телефоне. Часы добавляют сон и пульс, и выводы становятся точнее. Утренняя подсказка о дне — только для тех, у кого часы есть.</p></details>
+    </section>
+    <section class="qgroup"><h2>Деньги</h2>
+      <details class="qa"><summary><span class="qn">14</span>За что платить, если многое есть бесплатно?</summary><p>За личные выводы: что раскачивает именно тебя и что помогает. Цену рассчитаем позже, когда увидим, чем люди реально пользуются и что для них ценно. Если выводы не окажутся ценными, платить не станут — поэтому сначала проверяем пользу.</p></details>
+      <details class="qa"><summary><span class="qn">15</span>Этично ли брать деньги с тревожных людей?</summary><p>Всё, что помогает в трудную минуту, бесплатно: «Помощь», кризисные контакты, простые отметки и экспорт своих данных. Платно — только подробные разборы. Мы не будем пугать человека «высоким риском», чтобы продать объяснение.</p></details>
+    </section>
+    <section class="qgroup"><h2>Россия</h2>
+      <details class="qa"><summary><span class="qn">16</span>Как вы будете брать деньги в России? На кого оформлен аккаунт разработчика?</summary><p>С 1 апреля 2026 года Apple не принимает платежи в России, а с российского аккаунта разработчика нельзя продавать внутри приложения нигде. Мы оформим ООО. Через него будем продавать в России через RuStore (комиссия 15%) и оплату на сайте.</p></details>
+      <details class="qa"><summary><span class="qn">17</span>Где хранятся данные и какой ИИ, если Claude в России недоступен?</summary><p>Сейчас дневные итоги хранятся в Supabase за рубежом, а подробные данные — на телефоне. По закону данные россиян нужно хранить в России, поэтому перед запуском в России переедем в российское облако. ИИ-разборов пока нет; для России выберем между GigaChat и YandexGPT, сравнив их на 50 тестовых разборах.</p></details>
+    </section>
+    <section class="qgroup"><h2>Команда и план</h2>
+      <details class="qa"><summary><span class="qn">18</span>Что уже работает?</summary><p>Отметки, история и статистика, профиль тревоги по шкале GAD-7, «Помощь» без интернета, 16 языков. Apple Health и сигнал «Как ты?» — в тестовой версии. Пока нет ИИ-разборов, оплаты и части способов входа.</p></details>
+      <details class="qa"><summary><span class="qn">19</span>Кто в команде?</summary><p>Нас двое: Артём делает мобильное приложение, Виталий — сервер и базу. Психолога в команде пока нет; нам нужен консультант, который проверит тексты и сценарии помощи. <b>[решить с Артёмом: психолог-консультант]</b></p></details>
+      <details class="qa"><summary><span class="qn">20</span>Что дальше и как быстро вы поймёте, что идея работает?</summary><p>Сначала опрос и 15–20 интервью со студентами. Потом дадим приложение студентам с часами и без и примерно за месяц увидим, стало ли им понятнее, откуда тревога, и возвращаются ли они. Если нет — увидим и поменяем фокус.</p></details>
+    </section>
+    <section class="qgroup"><h2>Чего не говорить</h2><ul class="avoid"><li>«Помогаем с ментальным здоровьем» — без фокуса</li><li>«Все люди с тревогой»</li><li>Придуманный размер рынка</li><li>«Apple этого не делает» — может начать завтра</li><li>«Наш прогноз точнее» — не проверено</li><li>«У нас красивее»; «ИИ лучше психолога»</li><li>«Конкурентов нет»</li><li>Перечислять функции вместо одной идеи</li><li>«У нас сложная технология»</li><li>«ИИ всё предскажет»; «мы предсказываем тревогу»</li><li>«Прогноз не ошибается»; «ИИ-психолог», «терапия», «диагноз»</li><li>«Прогноз создаёт привычку»</li><li>«Без часов работает так же» — точность ниже</li><li>Ссылаться на западные цены и конверсии</li><li>«Разберёмся потом»</li><li>«Через App Store»</li><li>«Данные в безопасности» без адреса сервера</li><li>Показывать заглушки как готовое</li><li>Обещать психолога в команде, которого нет</li><li>Число пользователей или удержание без теста</li></ul></section>
+    <section class="qgroup"><h2>Ещё не решено</h2><ol class="avoid"><li><b>Юрлицо и аккаунт разработчика:</b> ИП или ООО, на кого, в какой стране (вопрос 16).</li><li><b>Рынок для старта:</b> Россия, СНГ или весь мир.</li><li><b>Цена:</b> 249–490 ₽ в месяц, есть ли скидка или бесплатный период для студентов (вопрос 14).</li><li><b>Сегмент:</b> студенты как первый пользователь — согласовать вместе с речью (cxlvcl/psihology#20, вопрос 2).</li><li><b>Психолог-консультант:</b> нужен ли и где искать (вопрос 19).</li><li><b>Вкладка «ИИ-психолог»:</b> переименовать до питча, чтобы ответ 11 не противоречил приложению.</li></ol></section>
+  </div>
+  <details id="srcbox">
     <summary>Откуда цифры (вслух не читать)</summary>
     <div class="src">
       <div><span>57% россиян: в окружении больше тревоги (ФОМ, конец июля 2026, 1 500 человек, 51 регион)</span><a href="https://ru.themoscowtimes.com/2026/08/01/trevozhnost-rossiyan-dostigla-maksimuma-sovremen-mobilizatsii-a202417">The Moscow Times</a></div>
@@ -121,12 +180,15 @@ const $ = id => document.getElementById(id);
 const META = {
   full: ["на 3 минуты", "Около 290 слов, в спокойном темпе это 2,5 минуты. Вопрос про деньги держим наготове, в речи его нет.", 180],
   short: ["на 30 секунд", "Для знакомства в коридоре, лифте или когда дали полминуты.", 30],
+  qa: ["после питча", "20 вероятных вопросов жюри и ответы на 20–30 секунд. Нажми на вопрос, чтобы увидеть ответ. Шпаргалка Виталия.", 30],
 };
 let version = "full";
 document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
   version = b.dataset.v;
   document.querySelectorAll(".seg button").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", x === b); });
-  $("full").hidden = version !== "full"; $("short").hidden = version !== "short";
+  $("full").hidden = version !== "full"; $("short").hidden = version !== "short"; $("qa").hidden = version !== "qa";
+  $("srcbox").hidden = version === "qa"; $("clock").hidden = version === "qa";
+  $("vtitle").textContent = version === "qa" ? "Ответы" : "Речь";
   $("vlabel").textContent = META[version][0]; $("vmeta").textContent = META[version][1];
   stop(); elapsed = 0; paint();
 });
@@ -150,6 +212,19 @@ function stop(){ if (timer) { elapsed += (Date.now() - t0) / 1000; clearInterval
 $("clock").onclick = () => { if (timer) stop(); else { t0 = Date.now(); timer = setInterval(paint, 250); } paint(); };
 $("clock").ondblclick = () => { stop(); elapsed = 0; paint(); };
 paint();
+
+// Q&A: filter by any word in the question or answer; matches open so the answer is right there.
+const qas = [...document.querySelectorAll(".qa")];
+function qfilter(){
+  const q = $("qsearch").value.trim().toLowerCase();
+  let n = 0;
+  qas.forEach(d => { const hit = !q || d.textContent.toLowerCase().includes(q); d.hidden = !hit; if (hit) n++; if (q) d.open = hit; });
+  document.querySelectorAll("#qa .qgroup").forEach(g => { const qs = g.querySelectorAll(".qa"); if (qs.length) g.hidden = ![...qs].some(d => !d.hidden); });
+  $("qcount").textContent = q ? `Найдено: ${n}` : `${qas.length} вопросов`;
+}
+$("qsearch").addEventListener("input", qfilter);
+$("openall").onclick = () => { const open = !qas.every(d => d.open); qas.forEach(d => d.open = open); $("openall").textContent = open ? "Свернуть все" : "Раскрыть все"; };
+qfilter();
 
 (function logo(){
   const cv = $("logo"), ctx = cv.getContext("2d"), dpr = Math.min(3, devicePixelRatio || 1), N = 600, P = [];
