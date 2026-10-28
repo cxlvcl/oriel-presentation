@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Тест тревожности · Oriel</title>
+<meta name="description" content="Анонимная самопроверка уровня тревоги по шкале GAD-7 и профиль тревоги. 2 минуты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: phone-first, one question per screen. Intro -> 17 questions with big answer buttons -> optional "who are you" -> result: GAD-7 level, four index bars, what to do. Monochrome like Oriel. */
+:root{
+  --bg:#050506; --surface:#111113; --ink:#f5f5f7; --ink2:rgba(245,245,247,.64); --ink3:rgba(245,245,247,.36); --line:rgba(245,245,247,.13); --chip:rgba(245,245,247,.06);
+  --display:-apple-system,"SF Pro Display",BlinkMacSystemFont,"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --text:-apple-system,"SF Pro Text",BlinkMacSystemFont,"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f5f5f7;--surface:#fff;--ink:#0b0b0c;--ink2:rgba(11,11,12,.64);--ink3:rgba(11,11,12,.38);--line:rgba(11,11,12,.12);--chip:rgba(11,11,12,.04);color-scheme:light}}
+:root[data-theme="light"]{--bg:#f5f5f7;--surface:#fff;--ink:#0b0b0c;--ink2:rgba(11,11,12,.64);--ink3:rgba(11,11,12,.38);--line:rgba(11,11,12,.12);--chip:rgba(11,11,12,.04);color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:560px;min-height:100%;margin:0 auto;padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(28px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.03em}
+.brand canvas{width:30px;height:30px;display:block}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,9vw,44px);letter-spacing:-.035em;line-height:1.02;margin:8px 0 0;text-wrap:balance}
+h1 .g,h2 .g{color:var(--ink3)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;letter-spacing:-.025em;line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--ink2);font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.facts div{background:var(--surface);padding:14px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.facts b{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-.03em}
+.facts span{font-size:13px;color:var(--ink2)}
+.btn{appearance:none;border:0;border-radius:16px;background:var(--ink);color:var(--bg);font:600 17px/1 var(--text);padding:18px 20px;width:100%;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink2);border:1px solid var(--line)}
+.btn:focus-visible,.ans:focus-visible,.back:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.note{font-size:13px;color:var(--ink3)}
+.stack{display:flex;flex-direction:column;gap:12px}
+.spacer{flex:1}
+
+.prog{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s ease}
+.count{font-family:var(--mono);font-size:12px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.back{appearance:none;background:none;border:0;color:var(--ink2);font:500 15px var(--text);padding:6px 0;cursor:pointer}
+.back:disabled{opacity:.3;cursor:default}
+.stem{font-size:14px;color:var(--ink3)}
+.answers{display:flex;flex-direction:column;gap:10px}
+.ans{appearance:none;text-align:left;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:16px;padding:17px 18px;font:500 17px/1.25 var(--text);cursor:pointer;transition:background .15s,border-color .15s}
+.ans.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media (hover:hover){.ans:hover{border-color:var(--ink3)}}
+.q-anim{animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.q-anim{animation:none}.bar i{transition:none}}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.level{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.level b{font-family:var(--display);font-size:56px;font-weight:600;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.level span{color:var(--ink3);font-size:15px}
+.scale{display:grid;grid-template-columns:5fr 5fr 5fr 7fr;gap:4px}
+.scale div{height:8px;border-radius:4px;background:var(--line)}
+.scale div.on{background:var(--ink)}
+.scale-l{display:grid;grid-template-columns:5fr 5fr 5fr 7fr;gap:4px;font-size:11px;color:var(--ink3);font-family:var(--mono)}
+.idx{display:flex;flex-direction:column;gap:12px}
+.row{display:grid;grid-template-columns:90px 1fr 42px;align-items:center;gap:10px;font-size:15px}
+.row .t{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.row .t i{display:block;height:100%;background:var(--ink2);border-radius:5px}
+.row.lead-ch .t i{background:var(--ink)}
+.row.lead-ch span:first-child{font-weight:600}
+.row .v{font-family:var(--mono);font-size:13px;color:var(--ink2);text-align:right;font-variant-numeric:tabular-nums}
+ul.tips{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:var(--ink2)}
+.help{border-color:var(--ink3)}
+.help a{color:var(--ink)}
+.save{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><canvas id="logo" aria-hidden="true"></canvas><span>Oriel</span></div>
+    <span class="kick">Самопроверка</span>
+  </div>
+
+  <!-- Intro -->
+  <section id="intro" class="stack" style="gap:22px">
+    <div>
+      <div class="kick">Тест тревожности</div>
+      <h1>Какой у вас уровень <span class="g">тревоги сейчас</span></h1>
+    </div>
+    <p class="lead">17 коротких вопросов о последних двух неделях. В конце вы увидите свой уровень тревоги и где она проявляется сильнее всего: в теле, в мыслях, в поведении или во сне.</p>
+    <div class="facts">
+      <div><b>2 мин</b><span>на все вопросы</span></div>
+      <div><b>Анонимно</b><span>без имени и почты</span></div>
+      <div><b>GAD-7</b><span>научная шкала</span></div>
+    </div>
+    <button class="btn" id="start">Начать</button>
+    <p class="note">Это самопроверка, а не диагноз. Результат видите только вы. Мы сохраняем лишь обезличенные ответы для общей статистики: без имени, почты и данных устройства.</p>
+  </section>
+
+  <!-- Question -->
+  <section id="quiz" class="stack" style="gap:22px" hidden>
+    <div class="prog">
+      <button class="back" id="back" type="button">← Назад</button>
+      <div class="bar"><i id="barfill"></i></div>
+      <span class="count" id="count">1 / 17</span>
+    </div>
+    <div id="qbox" class="stack" style="gap:18px"></div>
+  </section>
+
+  <!-- Result -->
+  <section id="result" class="stack" style="gap:16px" hidden>
+    <div>
+      <div class="kick">Ваш результат</div>
+      <h2 id="rtitle"></h2>
+    </div>
+    <div class="card">
+      <div class="level"><b id="rscore"></b><span>из 21 по шкале GAD-7</span></div>
+      <div class="scale" id="rscale"><div></div><div></div><div></div><div></div></div>
+      <div class="scale-l"><span>0–4</span><span>5–9</span><span>10–14</span><span>15–21</span></div>
+      <p id="rtext" class="lead"></p>
+    </div>
+    <div class="card">
+      <div class="kick">Профиль тревоги</div>
+      <div class="idx" id="ridx"></div>
+      <p class="note">Где тревога проявляется сильнее. Шкала 0–100, выделено то, что выше 66 или самое высокое.</p>
+    </div>
+    <div class="card">
+      <div class="kick">Что можно сделать</div>
+      <ul class="tips" id="rtips"></ul>
+    </div>
+    <div class="card help" id="rhelp" hidden>
+      <div class="kick">Поддержка</div>
+      <p>Сейчас вам непросто, и поговорить со специалистом — нормально. Бесплатно и анонимно: <a href="tel:88002000122">8-800-2000-122</a> (телефон доверия, круглосуточно), психологическая служба вашего вуза, а в опасной ситуации <a href="tel:112">112</a>.</p>
+    </div>
+    <p class="note">Это самопроверка по открытой шкале GAD-7 (Spitzer и др., 2006), а не диагноз. Профиль тревоги — собственные вопросы Oriel, он показывает направление, а не норму.</p>
+    <p class="save" id="rsave"></p>
+    <button class="btn ghost" id="again" type="button">Пройти заново</button>
+  </section>
+</div>
+
+<script>
+const SUPABASE_URL = "https://zkkgmuohikwsoolbbfdj.supabase.co";
+const SUPABASE_KEY = "sb_publishable_wBETxUGkQ4rLYI2-WdydeQ_3vaQbSoT";
+const EVENT = "pedtech-2026";
+
+const FREQ = ["Ни разу", "Несколько дней", "Более половины дней", "Почти каждый день"];
+const STEM = "Как часто за последние 2 недели вас беспокоило следующее?";
+// kind: gad = GAD-7, phq = PHQ-2, then 4 indexes of 2 items each (structure like Wechsler index scores).
+const Q = [
+  ["gad","Вы нервничали, тревожились или были «на взводе»"],
+  ["gad","Не получалось остановить или контролировать беспокойство"],
+  ["gad","Вы слишком сильно беспокоились по разным поводам"],
+  ["gad","Вам было трудно расслабиться"],
+  ["gad","Вы были настолько беспокойны, что трудно было усидеть на месте"],
+  ["gad","Вы легко раздражались или злились"],
+  ["gad","Вы боялись, что может случиться что-то ужасное"],
+  ["phq","Вам ничего не хотелось делать, дела не радовали"],
+  ["phq","У вас было плохое настроение, подавленность или безнадёжность"],
+  ["body","Когда тревожно, сердце колотится или трудно вдохнуть"],
+  ["body","Мышцы напряжены: плечи, челюсть, живот"],
+  ["mind","Прокручиваете в голове худшие сценарии"],
+  ["mind","Снова и снова возвращаетесь к разговорам и ошибкам"],
+  ["act","Избегаете дел, людей или мест, потому что тревожно"],
+  ["act","Откладываете дела, потому что тревожно начинать"],
+  ["sleep","Долго не можете уснуть из-за мыслей"],
+  ["sleep","Просыпаетесь ночью или слишком рано и не можете снова уснуть"],
+];
+const ROLES = ["Студент", "Сотрудник компании", "Преподаватель или сотрудник вуза", "Другое"];
+const IDX = {body:"Тело", mind:"Мысли", act:"Поведение", sleep:"Сон"};
+const TIPS = {
+  body:"Тело: дыхание 4-4-6 (вдох на 4, пауза на 4, выдох на 6), 3–5 минут, когда накрывает. И прогулка или растяжка каждый день.",
+  mind:"Мысли: «отложенное беспокойство» — 15 минут в день записывайте тревожные мысли, в остальное время откладывайте их на это время.",
+  act:"Поведение: один маленький шаг в день к тому, что откладываете. Начинайте с 10 минут, а не со всего дела.",
+  sleep:"Сон: телефон за 30–60 минут до сна в сторону, вставать в одно и то же время. Если не спится больше 20 минут, встаньте и займитесь спокойным делом.",
+};
+
+const $ = id => document.getElementById(id);
+let ans = [], role = null, i = 0;
+const total = Q.length + 1;
+
+$("start").onclick = () => { ans = new Array(Q.length).fill(null); role = null; i = 0; show("quiz"); render(); };
+$("again").onclick = () => { show("intro"); };
+$("back").onclick = () => { if (i > 0) { i--; render(); } };
+
+function show(id){ ["intro","quiz","result"].forEach(s => $(s).hidden = s !== id); scrollTo(0,0); }
+
+function render(){
+  $("back").disabled = i === 0;
+  $("count").textContent = Math.min(i + 1, total) + " / " + total;
+  $("barfill").style.width = (i / total * 100) + "%";
+  const box = $("qbox"); box.innerHTML = ""; box.classList.remove("q-anim"); void box.offsetWidth; box.classList.add("q-anim");
+  const isRole = i === Q.length;
+  const stem = document.createElement("p"); stem.className = "stem";
+  stem.textContent = isRole ? "Последний вопрос, можно пропустить" : STEM;
+  const h = document.createElement("h2"); h.textContent = isRole ? "Кто вы?" : Q[i][1];
+  const list = document.createElement("div"); list.className = "answers";
+  (isRole ? ROLES : FREQ).forEach((label, v) => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "ans"; b.textContent = label;
+    if ((isRole ? role : ans[i]) === v) b.classList.add("on");
+    b.onclick = () => {
+      b.classList.add("on");
+      if (isRole) { role = v; setTimeout(finish, 180); } else { ans[i] = v; setTimeout(() => { i++; render(); }, 180); }
+    };
+    list.appendChild(b);
+  });
+  box.append(stem, h, list);
+  if (isRole) { const skip = document.createElement("button"); skip.type = "button"; skip.className = "btn ghost"; skip.textContent = "Пропустить"; skip.onclick = () => { role = null; finish(); }; box.appendChild(skip); }
+}
+
+function sum(kind){ return Q.reduce((s, q, k) => s + (q[0] === kind ? ans[k] : 0), 0); }
+
+function finish(){
+  const gad = sum("gad"), phq = sum("phq");
+  const idx = {}; for (const k in IDX) idx[k] = Math.round(sum(k) / 6 * 100);
+  const band = gad >= 15 ? 3 : gad >= 10 ? 2 : gad >= 5 ? 1 : 0;
+  const TITLES = ["Минимальная тревога", "Лёгкая тревога", "Умеренная тревога", "Выраженная тревога"];
+  const TEXTS = [
+    "Тревога сейчас почти не мешает. Это хороший момент, чтобы заметить, что помогает вам держаться в спокойном состоянии.",
+    "Тревога есть, но в обычных пределах. Обычно хватает простых шагов: сон, движение, понять, что именно раскачивает.",
+    "Тревога заметно влияет на день. При таком результате обычно советуют поговорить с психологом, особенно если так уже больше двух недель.",
+    "Тревоги сейчас много. При таком результате важно поговорить со специалистом: это не слабость, а нормальный шаг.",
+  ];
+  $("rtitle").innerHTML = TITLES[band].replace(" ", ' <span class="g">') + "</span>";
+  $("rscore").textContent = gad;
+  [...$("rscale").children].forEach((d, k) => d.classList.toggle("on", k <= band));
+  $("rtext").textContent = TEXTS[band] + (phq >= 3 ? " Ещё по ответам заметно сниженное настроение — об этом тоже стоит сказать специалисту." : "");
+
+  const order = Object.keys(IDX).sort((a, b) => idx[b] - idx[a]);
+  const leads = order.filter(k => idx[k] >= 67).length ? order.filter(k => idx[k] >= 67) : order.filter(k => idx[k] >= 50 && idx[k] === idx[order[0]]);
+  $("ridx").innerHTML = "";
+  for (const k of Object.keys(IDX)) {
+    const r = document.createElement("div"); r.className = "row" + (leads.includes(k) ? " lead-ch" : "");
+    r.innerHTML = `<span>${IDX[k]}</span><span class="t"><i style="width:${Math.max(idx[k], 2)}%"></i></span><span class="v">${idx[k]}</span>`;
+    $("ridx").appendChild(r);
+  }
+  const tipKeys = (leads.length ? leads : order).slice(0, 2);
+  $("rtips").innerHTML = "";
+  for (const k of tipKeys) { const li = document.createElement("li"); li.textContent = TIPS[k]; $("rtips").appendChild(li); }
+  const li = document.createElement("li"); li.textContent = "Отмечайте день в Oriel 30 секунд: через неделю станет понятно, что именно раскачивает вас и что помогает."; $("rtips").appendChild(li);
+  $("rhelp").hidden = !(band >= 2 || phq >= 3);
+  $("barfill").style.width = "100%";
+  show("result");
+  save({ event: EVENT, answers: ans, gad7: gad, phq2: phq, idx_body: idx.body, idx_mind: idx.mind, idx_act: idx.act, idx_sleep: idx.sleep, role: role === null ? null : ROLES[role] });
+}
+
+async function save(row){
+  $("rsave").textContent = "";
+  try {
+    const r = await fetch(SUPABASE_URL + "/rest/v1/test_results", {
+      method: "POST",
+      headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify(row),
+    });
+    if (!r.ok) throw new Error(r.status);
+  } catch (e) {
+    $("rsave").textContent = "Ответы не сохранились в статистику, ваш результат от этого не меняется.";
+  }
+}
+
+(function logo(){
+  const cv = $("logo"), ctx = cv.getContext("2d"), dpr = Math.min(3, devicePixelRatio || 1), N = 500, P = [];
+  for (let n = 0; n < N; n++) { const y = 1 - (n + .5) / N * 2, r = Math.sqrt(1 - y*y), a = n * 2.399963; P.push([Math.cos(a)*r, y, Math.sin(a)*r]); }
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function frame(now){
+    const s = cv.clientWidth * dpr; if (cv.width !== s) cv.width = cv.height = s;
+    const R = s * .46, c = s / 2, t = still ? 0 : now / 14000, ca = Math.cos(t), sa = Math.sin(t);
+    ctx.clearRect(0, 0, s, s); ctx.fillStyle = getComputedStyle(document.body).color;
+    for (const [x, y, z] of P) { const x1 = x*ca + z*sa, z1 = -x*sa + z*ca, d = (z1 + 1) / 2; if (d < .35) continue; ctx.globalAlpha = Math.pow(d, 2.2); ctx.beginPath(); ctx.arc(c + x1*R, c + y*R, (.3 + d*.6) * dpr, 0, 6.283); ctx.fill(); }
+    ctx.globalAlpha = 1; if (!still) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
