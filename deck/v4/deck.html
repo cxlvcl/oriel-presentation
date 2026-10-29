@@ -6,7 +6,7 @@
 <title>Oriel</title>
 <style>
 /* Oriel v4 — defense deck. One canvas of 1800 dots re-forms on every slide, text layer above. Any key = next, ← = back. Starts on black.
-   Structure follows the jury template: Проблема · Решение · Целевая аудитория · Рынок · Как работает и зарабатывает · Дорожная карта · Команда · Контакты. */
+   Eight slides, one per block of the jury template: Проблема · Решение · Целевая аудитория · Рынок · Как работает и зарабатывает · Дорожная карта · Команда · Контакты. */
 :root{
   --ink:#f5f5f7; --ink2:rgba(245,245,247,.62); --ink3:rgba(245,245,247,.34);
   --display:-apple-system,"SF Pro Display","Inter Display","Inter",BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
@@ -58,7 +58,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
 .me .d2{width:1.5vw;height:1.5vw}
 .legend{display:flex;gap:1.6vw;align-items:center}
 .legend .d{width:.8vw;height:.8vw;margin-right:.4vw}
-.frame{border:1px dashed rgba(245,245,247,.0)}
+.tag{font-family:var(--mono)!important;font-size:.72vw!important;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)!important}
 </style>
 </head>
 <body>
@@ -67,144 +67,75 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
 <!-- 0: black -->
 <section class="slide" data-form="none"></section>
 
-<!-- 1: intro — dots fly in and assemble the sphere -->
-<section class="slide" data-form="sphere-intro">
-  <h1 class="h center f" style="top:69vh;font-size:6.4vw;--d:2.2">Oriel</h1>
-  <div class="acr center f" style="top:82vh;--d:3.1">
-    <span><b>O</b>bserve<small>заметить</small></span>
-    <span><b>R</b>ecognize<small>распознать</small></span>
-    <span><b>I</b>nsight<small>понять</small></span>
-    <span><b>E</b>ase<small>облегчить</small></span>
-    <span><b>L</b>ive<small>жить</small></span>
-  </div>
-</section>
-
-<!-- 2: hall test -->
-<section class="slide" data-form="sphere-left">
-  <div class="col f" style="left:50vw;top:27vh;width:40vw;--d:.5">
-    <div class="kick">Пока я рассказываю</div>
-    <h2 class="h mid">Узнайте свой уровень тревоги <span class="g">за 2 минуты</span></h2>
-    <p class="sm">Отсканируйте QR. Анонимно, результат видите только вы. В конце покажу, что получилось у зала.</p>
-  </div>
-  <div class="qr f" style="left:50vw;top:61vh;width:12vw;height:12vw;padding:.8vw;--d:1"><svg viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM12 0h1v1h-1zM16 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM21 0h1v1h-1zM23 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM29 0h1v1h-1zM30 0h1v1h-1zM31 0h1v1h-1zM32 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h1v1h-1zM15 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM21 1h1v1h-1zM22 1h1v1h-1zM26 1h1v1h-1zM32 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM16 2h1v1h-1zM19 2h1v1h-1zM21 2h1v1h-1zM23 2h1v1h-1zM24 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM32 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM11 3h1v1h-1zM15 3h1v1h-1zM18 3h1v1h-1zM22 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM29 3h1v1h-1zM30 3h1v1h-1zM32 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM16 4h1v1h-1zM17 4h1v1h-1zM20 4h1v1h-1zM23 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM29 4h1v1h-1zM30 4h1v1h-1zM32 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h1v1h-1zM21 5h1v1h-1zM22 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM29 6h1v1h-1zM30 6h1v1h-1zM31 6h1v1h-1zM32 6h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM16 7h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM13 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM21 9h1v1h-1zM23 9h1v1h-1zM26 9h1v1h-1zM27 9h1v1h-1zM29 9h1v1h-1zM30 9h1v1h-1zM32 9h1v1h-1zM2 10h1v1h-1zM4 10h1v1h-1zM6 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM17 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM10 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM25 11h1v1h-1zM28 11h1v1h-1zM29 11h1v1h-1zM30 11h1v1h-1zM32 11h1v1h-1zM0 12h1v1h-1zM3 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM29 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM13 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM29 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM32 13h1v1h-1zM2 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM12 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM18 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM27 14h1v1h-1zM29 14h1v1h-1zM30 14h1v1h-1zM31 14h1v1h-1zM0 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM10 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM21 15h1v1h-1zM23 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM29 15h1v1h-1zM30 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM9 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM14 16h1v1h-1zM15 16h1v1h-1zM17 16h1v1h-1zM20 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM25 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM29 16h1v1h-1zM32 16h1v1h-1zM0 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM10 17h1v1h-1zM12 17h1v1h-1zM14 17h1v1h-1zM16 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM20 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM29 17h1v1h-1zM30 17h1v1h-1zM31 17h1v1h-1zM32 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM18 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM30 18h1v1h-1zM31 18h1v1h-1zM0 19h1v1h-1zM1 19h1v1h-1zM2 19h1v1h-1zM3 19h1v1h-1zM4 19h1v1h-1zM5 19h1v1h-1zM11 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM27 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM30 19h1v1h-1zM0 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM12 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM25 20h1v1h-1zM28 20h1v1h-1zM29 20h1v1h-1zM0 21h1v1h-1zM5 21h1v1h-1zM7 21h1v1h-1zM8 21h1v1h-1zM10 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM22 21h1v1h-1zM23 21h1v1h-1zM26 21h1v1h-1zM30 21h1v1h-1zM32 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM17 22h1v1h-1zM19 22h1v1h-1zM22 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM31 22h1v1h-1zM0 23h1v1h-1zM4 23h1v1h-1zM5 23h1v1h-1zM7 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM11 23h1v1h-1zM16 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM22 23h1v1h-1zM23 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM9 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM12 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM25 24h1v1h-1zM26 24h1v1h-1zM27 24h1v1h-1zM28 24h1v1h-1zM8 25h1v1h-1zM10 25h1v1h-1zM12 25h1v1h-1zM16 25h1v1h-1zM17 25h1v1h-1zM18 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM21 25h1v1h-1zM24 25h1v1h-1zM28 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM32 25h1v1h-1zM0 26h1v1h-1zM1 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM14 26h1v1h-1zM15 26h1v1h-1zM16 26h1v1h-1zM17 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM30 26h1v1h-1zM31 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM9 27h1v1h-1zM11 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM16 27h1v1h-1zM17 27h1v1h-1zM18 27h1v1h-1zM20 27h1v1h-1zM21 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM31 27h1v1h-1zM0 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM12 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM24 28h1v1h-1zM25 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM0 29h1v1h-1zM2 29h1v1h-1zM3 29h1v1h-1zM4 29h1v1h-1zM6 29h1v1h-1zM8 29h1v1h-1zM9 29h1v1h-1zM11 29h1v1h-1zM14 29h1v1h-1zM15 29h1v1h-1zM17 29h1v1h-1zM18 29h1v1h-1zM24 29h1v1h-1zM25 29h1v1h-1zM28 29h1v1h-1zM29 29h1v1h-1zM30 29h1v1h-1zM31 29h1v1h-1zM32 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM3 30h1v1h-1zM4 30h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM13 30h1v1h-1zM14 30h1v1h-1zM15 30h1v1h-1zM16 30h1v1h-1zM17 30h1v1h-1zM20 30h1v1h-1zM21 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM0 31h1v1h-1zM6 31h1v1h-1zM9 31h1v1h-1zM11 31h1v1h-1zM14 31h1v1h-1zM15 31h1v1h-1zM19 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM26 31h1v1h-1zM28 31h1v1h-1zM29 31h1v1h-1zM30 31h1v1h-1zM0 32h1v1h-1zM1 32h1v1h-1zM2 32h1v1h-1zM3 32h1v1h-1zM4 32h1v1h-1zM5 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM11 32h1v1h-1zM15 32h1v1h-1zM17 32h1v1h-1zM19 32h1v1h-1zM20 32h1v1h-1zM22 32h1v1h-1zM23 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM27 32h1v1h-1zM31 32h1v1h-1z"/></svg></div>
-</section>
-
-<!-- 3: ПРОБЛЕМА · 4% -->
+<!-- 1: ПРОБЛЕМА — dots fly in from everywhere and settle into 100; four light up -->
 <section class="slide" data-form="grid100">
-  <div class="col f" style="left:7vw;top:24vh;width:44vw;--d:.3">
+  <div class="col f" style="left:7vw;top:12vh;width:46vw;--d:.6">
     <div class="kick">01 · Проблема</div>
     <div class="num">4%</div>
     <h2 class="h mid" style="font-size:2.9vw">студентов дошли <span class="g">до психолога вуза за год</span></h2>
     <div class="src">194 тыс. обращений за 2024/25, на 36% больше, чем годом раньше · Минобрнауки</div>
   </div>
-  <p class="sm f center" style="top:86vh;width:70vw;--d:2.6">Об остальных 96% вуз узнаёт, когда уже поздно.</p>
+  <div class="cap f" style="left:7vw;top:66vh;width:14vw;--d:1.6">1 на 1 900<small>один психолог службы на 1 900 студентов</small></div>
+  <div class="cap f" style="left:23vw;top:66vh;width:14vw;--d:2">256 → 538<small>психологических служб в вузах с 2020 года</small></div>
+  <div class="cap f" style="left:39vw;top:66vh;width:14vw;--d:2.4">2027<small>благополучие студентов — задача вуза: кабинет психолога на «Основе»</small></div>
+  <p class="sm f" style="left:7vw;top:86vh;width:80vw;--d:3">Тестирование раз в год, а тревога копится каждый день. Об остальных 96% вуз узнаёт, когда уже поздно: пересдача, академ, отчисление.</p>
 </section>
 
-<!-- 4: ПРОБЛЕМА · 1 на 1 900 -->
-<section class="slide" data-form="onecrowd">
-  <div class="kick f" style="left:7vw;top:12vh;--d:.2">01 · Проблема · психологическая служба</div>
-  <h2 class="h mid f" style="left:7vw;top:16.5vh;--d:.4">1 психолог <span class="g">на 1 900 студентов</span></h2>
-  <p class="sm f center" style="top:88vh;width:70vw;--d:2.2">Тестирование — раз в год. Тревога копится каждый день.</p>
-</section>
-
-<!-- 5: ПРОБЛЕМА · тренд -->
-<section class="slide" data-form="trend">
-  <div class="kick f" style="left:7vw;top:12vh;--d:.2">01 · Тренд</div>
-  <h2 class="h mid f" style="left:7vw;top:16.5vh;--d:.4">Благополучие студентов — <span class="g">задача вуза</span></h2>
-  <div class="cap f" style="left:7vw;top:69vh;width:15vw;--d:.8">2020<small>256 психологических служб в вузах</small></div>
-  <div class="cap f" style="left:31vw;top:69vh;width:15vw;--d:1.3">2025<small>538 служб, 2,5 тыс. специалистов</small></div>
-  <div class="cap f" style="left:55vw;top:69vh;width:15vw;--d:1.8">2026<small>платформа «Основа» для всех студентов</small></div>
-  <div class="cap f" style="left:79vw;top:69vh;width:15vw;--d:2.3">2027<small>кабинет психолога на платформе</small></div>
-  <p class="sm f center" style="top:88vh;width:70vw;--d:3">Срез раз в год есть. Ежедневного ритма нет.</p>
-</section>
-
-<!-- 6: ПРОБЛЕМА · две стороны -->
-<section class="slide" data-form="buildup">
-  <div class="kick f" style="left:7vw;top:12vh;--d:.2">01 · Две стороны одной проблемы</div>
-  <h2 class="h mid f" style="left:7vw;top:16.5vh;width:62vw;--d:.4">Студент копит тревогу неделями. <span class="g">Вуз узнаёт, когда уже поздно.</span></h2>
-  <div class="lbl tc f" style="left:20vw;top:77vh;width:20vw;--d:2">Oriel замечает здесь</div>
-  <div class="lbl g tc f" style="left:72vw;top:77vh;width:22vw;--d:2.6">Вуз узнаёт здесь<br><span class="src">пересдача · академ · отчисление</span></div>
-</section>
-
-<!-- 7: РЕШЕНИЕ -->
+<!-- 2: РЕШЕНИЕ -->
 <section class="slide" data-form="orbits">
   <div class="kick f" style="left:7vw;top:12vh;--d:.2">02 · Решение</div>
-  <h2 class="h mid f" style="left:7vw;top:16.5vh;width:36vw;--d:.4">Трекер для студента. <span class="g">Платформа для вуза.</span></h2>
-  <p class="sm f" style="left:7vw;top:66vh;width:28vw;--d:2">Студент каждый день видит, что его раскачивает, и получает помощь в два касания. Вуз каждый день видит, где курсу тяжело. Не раз в год, а каждый день.</p>
+  <h2 class="h mid f" style="left:7vw;top:16.5vh;width:36vw;--d:.4">Oriel — трекер для студента. <span class="g">Платформа для вуза.</span></h2>
+  <div class="col f" style="left:7vw;top:58vh;width:28vw;gap:1.6vw;--d:2">
+    <div class="cap">Студенту<small>30 секунд в день, и через неделю видно, что раскачивает и что помогает. Помощь в два касания.</small></div>
+    <div class="cap">Вузу<small>каждый день видно, где курсу тяжело, а не раз в год. Служба успевает до академа.</small></div>
+  </div>
   <div class="lbl tc f" style="left:52vw;top:70vh;width:16vw;--d:1">Студент</div>
   <div class="lbl g tc f" style="left:50vw;top:43.6vh;width:20vw;--d:1.4">Психологическая служба</div>
   <div class="lbl g tc f" style="left:50vw;top:34.6vh;width:20vw;--d:1.8">Руководство вуза</div>
 </section>
 
-<!-- 8: РЕШЕНИЕ · отличие -->
-<section class="slide" data-form="none">
-  <div class="kick f" style="left:7vw;top:10vh;--d:.2">02 · Чем мы отличаемся</div>
-  <h2 class="h mid f" style="left:7vw;top:14.5vh;--d:.4">Пять условий. <span class="g">Все сразу — только у Oriel.</span></h2>
-  <table class="cmp f" style="left:7vw;top:28vh;--d:.9">
-    <tr><th></th><th>Без часов и колец</th><th>Работает в России</th><th>Служба видит динамику</th><th>Кабинет для вуза</th><th>Объясняет, что раскачивает</th></tr>
-    <tr><td>Ясно<small>онлайн-психологи</small></td><td><i class="d d2"></i></td><td><i class="d d2"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td></tr>
-    <tr><td>Moodi · EasyDiary<small>дневники настроения</small></td><td><i class="d d2"></i></td><td><i class="d d2"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td></tr>
-    <tr><td>Headspace · Calm<small>медитации</small></td><td><i class="d d2"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td><td><i class="d d0"></i></td></tr>
-    <tr><td>Bearable<small>трекер симптомов</small></td><td><i class="d d2"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d2"></i></td></tr>
-    <tr><td>Oura · WHOOP · StressWatch<small>кольца и часы</small></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td><td><i class="d d1"></i></td></tr>
-    <tr><td>Samsung Health<small>только Android, стресс — с Galaxy Watch</small></td><td><i class="d d1"></i></td><td><i class="d d2"></i></td><td><i class="d d0"></i></td><td><i class="d d0"></i></td><td><i class="d d1"></i></td></tr>
-    <tr class="me"><td>Oriel</td><td><i class="d d2"></i></td><td><i class="d d2"></i></td><td><i class="d d2"></i></td><td><i class="d d2"></i></td><td><i class="d d2"></i></td></tr>
-  </table>
-  <div class="src legend f" style="left:7vw;top:88vh;--d:1.6"><span><i class="d d2"></i>есть</span><span><i class="d d1"></i>частично</span><span><i class="d d0"></i>нет</span><span>По открытым данным, октябрь 2026. Кабинет вуза в Oriel — в разработке, к пилоту.</span></div>
-</section>
-
-<!-- 9: ЦЕЛЕВАЯ АУДИТОРИЯ -->
+<!-- 3: ЦЕЛЕВАЯ АУДИТОРИЯ -->
 <section class="slide" data-form="two">
   <div class="kick f" style="left:7vw;top:10vh;--d:.2">03 · Целевая аудитория</div>
   <h2 class="h mid f" style="left:7vw;top:14.5vh;--d:.4">Два клиента. <span class="g">Одна проблема.</span></h2>
   <div class="col f" style="left:12vw;top:56vh;width:30vw;--d:1">
-    <div class="cap">Аня, 18 лет<small style="font-family:var(--mono);font-size:.72vw;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)">пользователь · студентка</small></div>
+    <div class="cap">Аня, 18 лет<small class="tag">пользователь · студентка</small></div>
     <p class="sm">Первый курс, очно, первая сессия. Спит по 5 часов, тревога перед экзаменами. К психологу не пойдёт: «не настолько плохо». Телефон в руке весь день.</p>
   </div>
   <div class="col f" style="left:58vw;top:56vh;width:30vw;--d:1.5">
-    <div class="cap">Психологическая служба вуза<small style="font-family:var(--mono);font-size:.72vw;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)">заказчик · вуз</small></div>
+    <div class="cap">Психологическая служба вуза<small class="tag">заказчик · вуз</small></div>
     <p class="sm">1 психолог на 1 900 студентов. О проблеме узнаёт из заявления или звонка родителей. Нужно видеть заранее и отчитываться цифрами.</p>
   </div>
   <p class="sm f center" style="top:88vh;width:80vw;font-size:1.15vw;--d:2.2">Первый вход: первокурсники-очники в вузах с психологической службой. Сессия — пик тревоги.</p>
 </section>
 
-<!-- 10: РЫНОК -->
+<!-- 4: РЫНОК — in students, the price per student is negotiable -->
 <section class="slide" data-form="squares">
   <div class="col f" style="left:7vw;top:24vh;width:31vw;--d:.3">
     <div class="kick">04 · Рынок</div>
     <h2 class="h mid">Узкий вход: <span class="g">первокурсники в сессию</span></h2>
-    <p class="sm">Через психологическую службу вуза. 4,66 млн студентов в России, 538 вузовских служб.</p>
-    <div class="src">Расчёт при 300 ₽ за студента в год — допущение.</div>
+    <p class="sm">Через психологическую службу вуза. Цель первого года — 1% рынка: пять вузов.</p>
+    <div class="src">Студенты на 1.09.2025, вузы и службы — Минобрнауки. Цена за студента — по договору с вузом.</div>
   </div>
-  <div class="cap f" style="left:82vw;top:16vh;width:16vw;--d:.8">1,4 млрд ₽<small>TAM · все студенты России</small></div>
-  <div class="cap f" style="left:82vw;top:46vh;width:16vw;--d:1.4">623 млн ₽<small>SAM · очники в вузах с психслужбой</small></div>
-  <div class="cap f" style="left:82vw;top:74vh;width:16vw;--d:2.1">6,2 млн ₽<small>SOM · 1% в первый год, пять вузов</small></div>
+  <div class="cap f" style="left:82vw;top:16vh;width:16vw;--d:.8">4,66 млн<small>TAM · все студенты России, 736 вузов</small></div>
+  <div class="cap f" style="left:82vw;top:46vh;width:16vw;--d:1.4">2,1 млн<small>SAM · очники в вузах с психслужбой</small></div>
+  <div class="cap f" style="left:82vw;top:74vh;width:16vw;--d:2.1">20 тыс.<small>SOM · 1% в первый год, пять вузов</small></div>
 </section>
 
-<!-- 11: КАК РАБОТАЕТ -->
+<!-- 5: КАК РАБОТАЕТ И КАК ЗАРАБАТЫВАЕТ -->
 <section class="slide" data-form="flow">
-  <div class="kick f" style="left:7vw;top:10vh;--d:.2">05 · Как работает</div>
+  <div class="kick f" style="left:7vw;top:10vh;--d:.2">05 · Как работает и как зарабатывает</div>
   <h2 class="h mid f" style="left:7vw;top:14.5vh;--d:.4">Студент отмечает. <span class="g">Вуз видит.</span></h2>
-  <div class="cap tc f" style="left:8vw;top:64vh;width:24vw;--d:1">Студент<small>30 секунд утром и вечером: сон, настроение, тревога. Через неделю видно, что раскачивает.</small></div>
-  <div class="cap tc f" style="left:38vw;top:64vh;width:24vw;--d:1.6">Платформа<small>собирает обезличенную картину групп от 10 человек. Каждый день, не раз в год.</small></div>
-  <div class="cap tc f" style="left:68vw;top:64vh;width:24vw;--d:2.2">Служба<small>видит, где курсу тяжелее, и кто сам нажал «Позвать помощь».</small></div>
-  <p class="src f center" style="top:90vh;width:80vw;--d:2.8">Личные записи видит только студент. Вузу — только обезличенные цифры групп.</p>
+  <div class="cap tc f" style="left:8vw;top:56vh;width:24vw;--d:1">Студент<small>30 секунд утром и вечером: сон, настроение, тревога.</small></div>
+  <div class="cap tc f" style="left:38vw;top:56vh;width:24vw;--d:1.6">Платформа<small>обезличенная картина групп от 10 человек, каждый день.</small></div>
+  <div class="cap tc f" style="left:68vw;top:56vh;width:24vw;--d:2.2">Служба<small>видит, где тяжелее, и кто сам нажал «Позвать помощь».</small></div>
+  <div class="f" style="left:7vw;top:74vh;width:86vw;border-top:1px solid rgba(245,245,247,.14);--d:2.8"></div>
+  <div class="cap f" style="left:7vw;top:78vh;width:26vw;--d:3">Студенту — бесплатно<small>поэтому им пользуются каждый день</small></div>
+  <div class="cap f" style="left:38vw;top:78vh;width:26vw;--d:3.3">Платит вуз<small>лицензия за подключённых студентов, цена договорная</small></div>
+  <div class="cap f" style="left:68vw;top:78vh;width:26vw;--d:3.6">Дальше<small>кабинет частного психолога для его клиентов</small></div>
 </section>
 
-<!-- 12: КАК ЗАРАБАТЫВАЕТ -->
-<section class="slide" data-form="money">
-  <div class="col f" style="left:7vw;top:22vh;width:36vw;--d:.3">
-    <div class="kick">05 · Как зарабатывает</div>
-    <div class="num">300 ₽</div>
-    <h2 class="h mid" style="font-size:2.6vw">за студента в год. <span class="g">Платит вуз.</span></h2>
-    <p class="sm">Лицензия вуза на платформу. Студенту приложение бесплатно, поэтому им пользуются.</p>
-    <div class="src">Цена — допущение для пилота, финальная — в договоре.</div>
-  </div>
-  <div class="src f" style="left:52vw;top:19vh;--d:.8">1 точка = 10 студентов · вуз на 4 000 студентов</div>
-  <div class="cap f" style="left:52vw;top:80vh;width:36vw;--d:2.4">= 1,2 млн ₽ в год<small>с одного вуза. Дальше — кабинет частного психолога.</small></div>
-</section>
-
-<!-- 13: ДОРОЖНАЯ КАРТА -->
+<!-- 6: ДОРОЖНАЯ КАРТА -->
 <section class="slide" data-form="timeline">
   <div class="kick f" style="left:7vw;top:16vh;--d:.2">06 · Дорожная карта</div>
   <h2 class="h mid f" style="left:7vw;top:20.5vh;--d:.4">Пилот этой зимой. <span class="g">Грант весной.</span></h2>
@@ -215,7 +146,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
   <div class="cap f" style="left:83vw;top:62vh;width:14vw;--d:2.6">Сентябрь 2027<small>пять вузов с первой недели учёбы</small></div>
 </section>
 
-<!-- 14: КОМАНДА — photo and roles come later -->
+<!-- 7: КОМАНДА — photo and roles come later -->
 <section class="slide" data-form="team">
   <div class="kick f" style="left:7vw;top:10vh;--d:.2">07 · Команда</div>
   <h2 class="h mid f" style="left:7vw;top:14.5vh;--d:.4">Кто делает Oriel</h2>
@@ -227,7 +158,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
   </div>
 </section>
 
-<!-- 15: КОНТАКТЫ -->
+<!-- 8: КОНТАКТЫ -->
 <section class="slide" data-form="sphere-contact">
   <h2 class="h f tc" style="left:7vw;top:72vh;width:40vw;font-size:2vw;--d:2.6">Заметить тревогу раньше.<br><span class="g">И не оставлять студента с ней одного.</span></h2>
   <div class="col f" style="left:52vw;top:14vh;width:40vw;--d:.4">
@@ -271,49 +202,14 @@ const appear = (since, at) => Math.max(0, Math.min(1, (since - at) / 600));
 
 const FORMS = {
   none: away,
-  "sphere-intro": (p, i, t) => sphere(p.u, t, W / 2, H * .38, Math.min(W, H) * .24),
-  "sphere-left": (p, i, t) => sphere(p.u, t, W * .27, H * .5, Math.min(W, H) * .27),
   "sphere-contact": (p, i, t) => sphere(p.u, t, W * .27, H * .4, Math.min(W, H) * .24),
 
   // 10×10 grid on the right; the 4 centre dots light up: 4 of 100 students reached the psychologist.
   grid100: (p, i, t, since) => {
     if (i >= 100) return away(p);
     const c = i % 10, r = (i / 10) | 0, g = Math.min(W, H) * .062, x0 = W * .72 - g * 4.5, y0 = H * .5 - g * 4.5;
-    const lit = (c === 4 || c === 5) && (r === 4 || r === 5), on = lit ? appear(since, 900) : 0;
+    const lit = (c === 4 || c === 5) && (r === 4 || r === 5), on = lit ? appear(since, 2000) : 0;
     return [x0 + c * g, y0 + r * g, .28 + .72 * on, 4 + 3 * on];
-  },
-
-  // A calm field of ~1500 dim students and one bright pulsing psychologist.
-  onecrowd: (p, i, t) => {
-    if (i >= 1500) return away(p);
-    const cols = 76, c = i % cols, r = (i / cols) | 0, dx = W * .84 / (cols - 1);
-    const x = W * .08 + c * dx + (r % 2 ? dx / 2 : 0), y = H * .34 + r * dx * .82;
-    if (i === 38 + 9 * cols) return [x, y, 1, 5 + 3 * pulse(t)];
-    return [x, y, .2 + .08 * Math.sin(t * .0012 + p.s * 9), 1.6];
-  },
-
-  // Baseline + 2020 column (256) + 2025 column (538) + 2026 sphere + 2027 ring.
-  trend: (p, i, t, since) => {
-    const base = H * .62 + 14, s = H * .0105;
-    if (i < 200) return [W * (.06 + .88 * i / 199), base + 10, .14, 1.2];
-    const col = (j, x0, start, a) => { const c = j % 16, r = (j / 16) | 0; return [x0 - 7.5 * s + c * s, base - r * s, since > start + r * 45 ? a : 0, 1.5]; };
-    if (i < 456) return col(i - 200, W * .14, 500, .45);
-    if (i < 994) return col(i - 456, W * .38, 1000, .8);
-    if (i < 1154) return sphere(S160[i - 994], t, W * .62, base - H * .1, H * .075, 1, appear(since, 1800));
-    if (i < 1190) { const k = i - 1154, a = k / 36 * TAU + t * .0002, R = H * .075; return [W * .86 + Math.cos(a) * R, base - H * .1 + Math.sin(a) * R, appear(since, 2300) * (.55 + .35 * pulse(t, .002)), 2]; }
-    return away(p);
-  },
-
-  // A line that starts calm on the left and grows into noise on the right; a ring marks the early point.
-  buildup: (p, i, t) => {
-    const y0 = H * .56;
-    if (i < 1300) {
-      const f = i / 1299, amp = Math.pow(f, 2.2) * H * .14, w = Math.sin(f * 60 + t * .002) * amp * (.6 + .4 * p.s);
-      const scatter = (p.s2 - .5) * amp * 1.2 * Math.pow(f, 1.5);
-      return [W * (.08 + .84 * f), y0 + w + scatter + Math.sin(f * 9 + t * .001) * 4, .3 + .55 * f, 1 + .9 * f];
-    }
-    if (i < 1340) { const a = (i - 1300) / 40 * TAU, R = 16 + 3 * pulse(t, .003); return [W * .3 + Math.cos(a) * R, y0 + Math.sin(a) * R, .9, 1.4]; }
-    return away(p);
   },
 
   // Student sphere with two orbits: psychological service (inner) and university leadership (outer).
@@ -346,8 +242,8 @@ const FORMS = {
 
   // Student ring → anonymised group block → one service dot; dotted streams between them.
   flow: (p, i, t, since) => {
-    const cy = H * .44;
-    if (i < 30) { const a = i / 30 * TAU - Math.PI / 2, R = H * .11; return [W * .2 + Math.cos(a) * R, cy + Math.sin(a) * R, since > 400 + i * 45 ? .95 : .15, 3]; }
+    const cy = H * .39;
+    if (i < 30) { const a = i / 30 * TAU - Math.PI / 2, R = H * .1; return [W * .2 + Math.cos(a) * R, cy + Math.sin(a) * R, since > 400 + i * 45 ? .95 : .15, 3]; }
     if (i < 190) return sphere(S160[i - 30], t, W * .2, cy, H * .05);
     if (i < 350) {
       const k = i - 190, c = k % 16, r = (k / 16) | 0, g = H * .02, hot = c >= 10 && c <= 12 && r >= 2 && r <= 4;
@@ -361,13 +257,6 @@ const FORMS = {
       return [xa + (xb - xa) * f, cy, .35 * Math.sin(f * Math.PI), 1.3];
     }
     return away(p);
-  },
-
-  // 400 dots = one university of 4 000 students, filling row by row.
-  money: (p, i, t, since) => {
-    if (i >= 400) return away(p);
-    const c = i % 25, r = (i / 25) | 0, g = H * .026;
-    return [W * .52 + 6 + c * g, H * .25 + r * g, since > 700 + r * 70 ? .75 : .06, 2.2];
   },
 
   // Line that draws itself left to right, five nodes; the first one (done) is brightest.
@@ -398,7 +287,7 @@ function go(n){
   slides[cur].classList.remove("off"); slides[cur].classList.add("on");
   form = slides[cur].dataset.form; window.slideT = performance.now();
   // Entering the intro from black: throw dots far out so they fly in from everywhere.
-  if (form === "sphere-intro" && prevForm === "none") P.forEach(p => { p.cx = rnd(-.2, 1.2) * W; p.cy = rnd(-.2, 1.2) * H; p.ca = 0; p.cs = 1; });
+  if (prevForm === "none" && form !== "none") P.forEach(p => { p.cx = rnd(-.2, 1.2) * W; p.cy = rnd(-.2, 1.2) * H; p.ca = 0; p.cs = 1; });
   prevForm = form;
 }
 addEventListener("keydown", e => {
@@ -412,7 +301,7 @@ addEventListener("click", () => go(cur + 1));
 function frame(now){
   const dt = Math.min(50, now - last); last = now;
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = "#f5f5f7";
-  const fn = FORMS[form] || away, since = now - (window.slideT || 0), intro = form === "sphere-intro";
+  const fn = FORMS[form] || away, since = now - (window.slideT || 0), intro = cur === 1;
   for (let i = 0; i < N; i++) {
     const p = P[i], tg = fn(p, i, now, since);
     if (p.cx === undefined) { p.cx = tg[0]; p.cy = tg[1]; p.ca = 0; p.cs = tg[3]; }
