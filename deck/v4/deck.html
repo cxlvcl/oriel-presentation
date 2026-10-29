@@ -6,7 +6,7 @@
 <title>Oriel</title>
 <style>
 /* Oriel v4 — defense deck. One canvas of 1800 dots re-forms on every slide, text layer above. Any key = next, ← = back. Starts on black.
-   Eight slides, one per block of the jury template: Проблема · Решение · Целевая аудитория · Рынок · Как работает и зарабатывает · Дорожная карта · Команда · Контакты. */
+   Black, the logo, then eight slides, one per block of the jury template: Проблема · Решение · Целевая аудитория · Рынок · Как работает и зарабатывает · Дорожная карта · Команда · Контакты. */
 :root{
   --ink:#f5f5f7; --ink2:rgba(245,245,247,.62); --ink3:rgba(245,245,247,.34);
   --display:-apple-system,"SF Pro Display","Inter Display","Inter",BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
@@ -68,7 +68,19 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
 <!-- 0: black -->
 <section class="slide" data-form="none"></section>
 
-<!-- 1: ПРОБЛЕМА — dots fly in from everywhere and settle into 100; four light up -->
+<!-- intro: dots fly in and assemble the sphere -->
+<section class="slide" data-form="sphere-intro">
+  <h1 class="h center f" style="top:69vh;font-size:6.4vw;--d:2.2">Oriel</h1>
+  <div class="acr center f" style="top:82vh;--d:3.1">
+    <span><b>O</b>bserve<small>заметить</small></span>
+    <span><b>R</b>ecognize<small>распознать</small></span>
+    <span><b>I</b>nsight<small>понять</small></span>
+    <span><b>E</b>ase<small>облегчить</small></span>
+    <span><b>L</b>ive<small>жить</small></span>
+  </div>
+</section>
+
+<!-- 1: ПРОБЛЕМА — the sphere breaks into 100 dots; four light up -->
 <section class="slide" data-form="grid100">
   <div class="col f" style="left:7vw;top:12vh;width:46vw;--d:.6">
     <div class="kick">01 · Проблема</div>
@@ -203,13 +215,14 @@ const appear = (since, at) => Math.max(0, Math.min(1, (since - at) / 600));
 
 const FORMS = {
   none: away,
+  "sphere-intro": (p, i, t) => sphere(p.u, t, W / 2, H * .38, Math.min(W, H) * .24),
   "sphere-contact": (p, i, t) => sphere(p.u, t, W * .27, H * .4, Math.min(W, H) * .24),
 
   // 10×10 grid on the right; the 4 centre dots light up: 4 of 100 students reached the psychologist.
   grid100: (p, i, t, since) => {
     if (i >= 100) return away(p);
     const c = i % 10, r = (i / 10) | 0, g = Math.min(W, H) * .062, x0 = W * .72 - g * 4.5, y0 = H * .5 - g * 4.5;
-    const lit = (c === 4 || c === 5) && (r === 4 || r === 5), on = lit ? appear(since, 2000) : 0;
+    const lit = (c === 4 || c === 5) && (r === 4 || r === 5), on = lit ? appear(since, 1100) : 0;
     return [x0 + c * g, y0 + r * g, .28 + .72 * on, 4 + 3 * on];
   },
 
@@ -287,7 +300,7 @@ function go(n){
   slides[cur].classList.remove("off"); slides[cur].classList.add("on");
   form = slides[cur].dataset.form; window.slideT = performance.now();
   // Entering the intro from black: throw dots far out so they fly in from everywhere.
-  if (prevForm === "none" && form !== "none") P.forEach(p => { p.cx = rnd(-.2, 1.2) * W; p.cy = rnd(-.2, 1.2) * H; p.ca = 0; p.cs = 1; });
+  if (form === "sphere-intro" && prevForm === "none") P.forEach(p => { p.cx = rnd(-.2, 1.2) * W; p.cy = rnd(-.2, 1.2) * H; p.ca = 0; p.cs = 1; });
   prevForm = form;
 }
 addEventListener("keydown", e => {
